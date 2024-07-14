@@ -1,11 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Label, TextInput } from "flowbite-react";
 import { Button } from "@mui/material";
+import Swal from "sweetalert2";
 
 export default function SignUp() {
+  const navigate = useNavigate(); // Initialize the navigate function
+
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -21,14 +24,25 @@ export default function SignUp() {
         .oneOf([Yup.ref("password"), null], "Passwords must match")
         .required("Required"),
     }),
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: (values, { resetForm }) => {
+      Swal.fire({
+        title: "Success!",
+        text: "Account created successfully!",
+        icon: "success",
+        confirmButtonText: "OK"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/sign-in"); // Navigate to the sign-in page
+        }
+      });
+      resetForm();
     },
   });
+
   return (
     <div className="min-h-screen mt-20">
       <div className="flex p-3 max-w-5xl mx-auto flex-col md:flex-row md:items-center gap-6">
-        {/* Left Side*/}
+        {/* Left Side */}
         <div className="flex-1">
           <Link
             to="/"
@@ -49,15 +63,14 @@ export default function SignUp() {
             property needs.
           </p>
         </div>
-        {/*Right Side*/}
+        {/* Right Side */}
         <div className="flex-1">
-          <form className="flex flex-col gap-4">
+          <form className="flex flex-col gap-4" onSubmit={formik.handleSubmit}>
             <div>
               <Label>
                 Username:
                 <TextInput
                   type="text"
-                  name="username"
                   placeholder="Username"
                   id="username"
                   {...formik.getFieldProps("username")}
@@ -72,7 +85,6 @@ export default function SignUp() {
                 Email:
                 <TextInput
                   type="email"
-                  name="email"
                   placeholder="name@gmail.com"
                   id="email"
                   {...formik.getFieldProps("email")}
@@ -87,7 +99,6 @@ export default function SignUp() {
                 Password:
                 <TextInput
                   type="password"
-                  name="password"
                   placeholder="Password"
                   id="password"
                   {...formik.getFieldProps("password")}
@@ -102,7 +113,6 @@ export default function SignUp() {
                 Confirm Password:
                 <TextInput
                   type="password"
-                  name="confirmPassword"
                   placeholder="Confirm your password"
                   id="confirmPassword"
                   {...formik.getFieldProps("confirmPassword")}
@@ -116,19 +126,20 @@ export default function SignUp() {
               ) : null}
             </div>
 
-            <Button type="submit"
+            <Button
+              type="submit"
               variant="contained"
               sx={{
                 color: "white",
                 backgroundColor: "gray",
                 borderColor: "black",
                 borderRadius: "7px",
-                fontFamily:'inherit',
+                fontFamily: "inherit",
                 "&:hover": {
                   color: "HighlightText",
                   backgroundColor: "darkgray",
-                  fontFamily:'inherit',
-                  fontWeight: 'bold',
+                  fontFamily: "inherit",
+                  fontWeight: "bold",
                 },
               }}
             >
@@ -137,8 +148,10 @@ export default function SignUp() {
           </form>
           <div className="flex gap-2 text-sm mt-5">
             <span>Already have an account?</span>
-            <Link to='/sign-in' className="text-blue-500">Sign In</Link>
-            </div>
+            <Link to="/sign-in" className="text-blue-500">
+              Sign In
+            </Link>
+          </div>
         </div>
       </div>
     </div>
