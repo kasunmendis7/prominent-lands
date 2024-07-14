@@ -7,7 +7,7 @@ import { Button } from "@mui/material";
 import Swal from "sweetalert2";
 
 export default function SignUp() {
-  const navigate = useNavigate(); // Initialize the navigate function
+  const navigate = useNavigate(); 
 
   const formik = useFormik({
     initialValues: {
@@ -32,7 +32,7 @@ export default function SignUp() {
         confirmButtonText: "OK"
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate("/sign-in"); // Navigate to the sign-in page
+          navigate("/sign-in");
         }
       });
       resetForm();
