@@ -1,8 +1,7 @@
 import { Button, Container } from "@mui/material";
 import { Label, Textarea, TextInput } from "flowbite-react";
 import React, { useState } from "react";
-import Swal from 'sweetalert2'
-
+import Swal from "sweetalert2";
 
 export default function Contact() {
   const [result, setResult] = useState("");
@@ -25,7 +24,7 @@ export default function Contact() {
       Swal.fire({
         title: "Success!",
         text: "Message sent successfully!",
-        icon: "success"
+        icon: "success",
       });
     } else {
       console.log("Error", data);
@@ -67,24 +66,27 @@ export default function Contact() {
               required
             ></Textarea>
           </div>
-          <Button
-            type="submit"
-            variant="contained"
-            sx={{
-              color: "white",
-              backgroundColor: "gray",
-              borderRadius: "7px",
-              fontFamily: "inherit",
-              "&:hover": {
-                color: "HighlightText",
-                backgroundColor: "darkgray",
+          <div className="mb-10">
+            <Button
+              type="submit"
+              variant="contained"
+              sx={{
+                color: "white",
+                backgroundColor: "gray",
+                borderRadius: "7px",
                 fontFamily: "inherit",
-                fontWeight: "bold",
-              },
-            }}
-          >
-            Submit Form
-          </Button>
+                width: "100%",
+                "&:hover": {
+                  color: "HighlightText",
+                  backgroundColor: "darkgray",
+                  fontFamily: "inherit",
+                  fontWeight: "bold",
+                },
+              }}
+            >
+              Submit Form
+            </Button>
+          </div>
         </form>
       </Container>
       <span>{result}</span>
