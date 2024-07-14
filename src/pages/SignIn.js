@@ -6,6 +6,7 @@ import { Label, TextInput } from "flowbite-react";
 import Button  from "@mui/material/Button";
 
 export default function SignUp() {
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -17,6 +18,7 @@ export default function SignUp() {
     }),
     onSubmit: (values) => {
       console.log(values);
+
     },
   });
   return (
