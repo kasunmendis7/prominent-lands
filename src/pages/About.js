@@ -24,7 +24,7 @@ export default function About() {
         About Us
       </Typography>
 
-      <section className="mb-16">
+      <section className="mb-16 mt-5">
         <div className="flex flex-col md:flex-row items-center">
           <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhuUotCewtExM1UNKQZtIHpMd7IEnh1rt1Qr6HjKjBtODc3wHGVaOspOS-Xd_RW0nTfGIQ3gn4e2jxEDDSc9BH4xcdtOJ67R-6gli_rthUCvRx8O627IJl50XfRTHgRooJoZK30Q_UPAv2H/s1600/08-Skokie_Klehm_Bros_Grocery_Store_ca1900.jpeg"
             alt="Company History" className="md:w-1/2 mb-4 md:mb-0" />
