@@ -6,6 +6,7 @@ import SignUp from "./pages/SignUp.js";
 import About from "./pages/About.js";
 import ContactUs from "./pages/ContactUs.js";
 import Header from "./components/Header.js";
+import Footer from "./components/Footer.js";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact-us" element={<ContactUs />} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }
