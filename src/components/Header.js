@@ -3,6 +3,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
 import Button from "@mui/material/Button";
+import { FaMoon } from "react-icons/fa6";
 
 export default function Header() {
   const path = useLocation().pathname;
@@ -45,6 +46,12 @@ export default function Header() {
         <AiOutlineSearch />
       </Button>
       <div className="flex gap-2 md:order-2">
+        <Button variant="outlined" color="inherit" className="w-12 h-10 sm:hidden" sx={{color: "darkslategray",
+              backgroundColor: "white",
+              borderColor: "lightgray",
+                borderRadius: "20px"}}>
+        <FaMoon />
+        </Button>
         <Link to="sign-in">
           <Button
             variant="outlined"
