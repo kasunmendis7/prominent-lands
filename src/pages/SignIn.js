@@ -1,12 +1,11 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Label, TextInput } from "flowbite-react";
 import Button  from "@mui/material/Button";
 
-export default function SignIn() {
-  const navigate = useNavigate();
+export default function SignUp() {
 
   const formik = useFormik({
     initialValues: {
@@ -17,9 +16,9 @@ export default function SignIn() {
       email: Yup.string().email("Invalid email address").required("Required"),
       password: Yup.string().required("Required"),
     }),
-    onSubmit: (values, { resetForm }) => {
-      navigate("/"); 
-      resetForm();
+    onSubmit: (values) => {
+      console.log(values);
+
     },
   });
   return (
@@ -48,7 +47,7 @@ export default function SignIn() {
         </div>
         {/*Right Side*/}
         <div className="flex-1">
-          <form className="flex flex-col gap-4" onSubmit={formik.handleSubmit}>
+          <form className="flex flex-col gap-4">
             <div>
               <Label>
                 Email:
@@ -96,7 +95,7 @@ export default function SignIn() {
                 },
               }}
             >
-              Sign In
+              Sign Up
             </Button>
           </form>
           <div className="flex gap-2 text-sm mt-5">
