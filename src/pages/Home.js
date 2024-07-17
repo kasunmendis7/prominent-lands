@@ -3,6 +3,7 @@ import Greeting from '../components/Greeting'
 import { Link } from 'react-router-dom'
 import StandardCarousel from '../components/StandardCarousel'
 import ListingItem from '../components/ListingItem'
+import CounterUp from '../components/CounterUp'
 
 export default function Home() {
   return (
@@ -18,10 +19,11 @@ export default function Home() {
         </div>
         <Link to='/contact-us' className='text-sm text-blue-700 hover:underline'>Contact us for more details...</Link>
       </div>
-      {/* carousel */}
+      {/* carousel and countup */}
       <StandardCarousel />
+      <CounterUp />
 
-      {/* listing results for offer, sale and rent */}
+      {/* listing */}
       <div className='max-w-6xl mx-auto p-3 flex flex-col gap-8 my-10'>
         <div>
           <div className='my-6 mx-12'>
