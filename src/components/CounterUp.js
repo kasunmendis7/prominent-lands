@@ -16,16 +16,16 @@ export default function CounterUp() {
   }, []);
 
   return (
-    <div className="w-full bg-gray-100 mb-10 text-slate-600 p-[50px]">
+    <div className="w-full bg-slate-300 mb-10 text-slate-600 p-[50px]">
       <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
         <div className='flex flex-col md:flex-row justify-between'>
-        <h1 className='text-2xl text-center font-semibold md:w-1/2'>
-          More than <br/>
-          {counterOn && <CountUp start={0} end={100} duration={2} delay={0} />}+ Customers
-        </h1>
-        <h1 className='text-2xl text-center font-semibold md:w-1/2'>
-        You have spent {seconds} seconds on the world's best real estate website.
-        </h1>
+          <h1 className='text-2xl text-center font-semibold md:w-1/2'>
+            More than <br />
+            {counterOn && <CountUp start={0} end={100} duration={2} delay={0} />}+ Customers
+          </h1>
+          <h1 className='text-2xl text-center font-semibold md:w-1/2'>
+            You have spent {seconds} seconds on the world's best real estate website.
+          </h1>
         </div>
       </ScrollTrigger>
     </div>

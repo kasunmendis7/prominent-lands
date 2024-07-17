@@ -14,7 +14,7 @@ export default function Greeting() {
     },[]);
     return (
         <section id='greeting' >
-            <h1 className='text-slate-800 font-bold text-3xl lg:text-4xl'>{welcomeMessage} <br/>Welcome to <span className='text-slate-500'>Prominent</span> Lands</h1>
+            <h1 className='text-gray-900 font-bold text-3xl lg:text-4xl'>{welcomeMessage} <br/>Welcome to <span className='text-slate-500'>Prominent</span> Lands</h1>
         </section>
     )
 }

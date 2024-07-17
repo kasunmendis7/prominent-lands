@@ -3,21 +3,21 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
 import Button from "@mui/material/Button";
-import { FaMoon } from "react-icons/fa6";
+import { FaMoon, FaSun } from "react-icons/fa6";
+import { useTheme } from "./ThemeProvider";
 
 export default function Header() {
+  const { theme, toggleTheme } = useTheme();
   const path = useLocation().pathname;
+
   return (
-    <Navbar className="border-b-2">
+    <Navbar className={`border-b-2 ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
       <Link
         to="/"
-        className="self-center whitespace-nowrap text-sm 
-      sm:text-xl font-semibold"
+        className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold"
       >
         <span
-          className="px-3 py-1 bg-gradient-to-r from-slate-700
-         via-gray-500
-        to-slate-500 rounded-lg text-white"
+          className="px-3 py-1 bg-gradient-to-r from-slate-700 via-gray-500 to-slate-500 rounded-lg text-white"
         >
           Prominent
         </span>
@@ -34,9 +34,9 @@ export default function Header() {
       <Button
         variant="outlined"
         sx={{
-          color: "gray",
-          backgroundColor: "whitesmoke",
-          borderColor: "gray",
+          color: theme === 'dark' ? 'white' : 'gray',
+          backgroundColor: theme === 'dark' ? 'darkgray' : 'whitesmoke',
+          borderColor: theme === 'dark' ? 'lightgray' : 'gray',
           borderRadius: "100px",
           display: { lg: "none" },
         }}
@@ -46,20 +46,28 @@ export default function Header() {
         <AiOutlineSearch />
       </Button>
       <div className="flex gap-2 md:order-2">
-        <Button variant="outlined" color="inherit" className="w-12 h-10 sm:hidden" sx={{color: "darkslategray",
-              backgroundColor: "white",
-              borderColor: "lightgray",
-                borderRadius: "20px"}}>
-        <FaMoon />
+        <Button
+          variant="outlined"
+          color="inherit"
+          className="w-12 h-10 sm:hidden"
+          sx={{
+            color: theme === 'dark' ? 'white' : 'darkslategray',
+            backgroundColor: theme === 'dark' ? 'gray' : 'white',
+            borderColor: theme === 'dark' ? 'lightgray' : 'lightgray',
+            borderRadius: "20px"
+          }}
+          onClick={toggleTheme}
+        >
+          {theme === 'light' ? <FaSun /> : <FaMoon />}
         </Button>
         <Link to="sign-in">
           <Button
             variant="outlined"
             color="inherit"
             sx={{
-              color: "darkslategray",
-              backgroundColor: "white",
-              borderColor: "lightgray",
+              color: theme === 'dark' ? 'white' : 'darkslategray',
+              backgroundColor: theme === 'dark' ? 'gray' : 'white',
+              borderColor: theme === 'dark' ? 'lightgray' : 'lightgray',
               borderRadius: "20px",
             }}
             className="w-15 h-10"
