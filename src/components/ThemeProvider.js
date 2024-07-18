@@ -12,7 +12,7 @@ const ThemeProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    document.body.className = theme; // This sets the body class
+    document.body.className = theme; 
   }, [theme]);
 
   return (
